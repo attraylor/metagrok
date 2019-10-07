@@ -1,0 +1,59 @@
+Toxapex @ Black Sludge  
+Ability: Regenerator  
+EVs: 248 HP / 104 Def / 132 SpD / 24 Spe  
+Bold Nature  
+IVs: 0 Atk  
+- Toxic  
+- Scald  
+- Recover  
+- Haze  
+
+ 
+Celesteela @ Leftovers  
+Ability: Beast Boost  
+EVs: 248 HP / 88 Def / 168 SpD / 4 Spe  
+Sassy Nature  
+- Heavy Slam  
+- Leech Seed  
+- Protect  
+- Flamethrower  
+
+ 
+Greninja-Ash @ Choice Specs  
+Ability: Battle Bond  
+EVs: 4 Def / 252 SpA / 252 Spe  
+Timid Nature  
+- Hydro Pump  
+- Dark Pulse  
+- Spikes  
+- Water Shuriken  
+
+ 
+Garchomp @ Rockium Z  
+Ability: Rough Skin  
+EVs: 252 Atk / 4 SpD / 252 Spe  
+Jolly Nature  
+- Stealth Rock  
+- Swords Dance  
+- Earthquake  
+- Stone Edge  
+
+ 
+Tapu Bulu @ Choice Band  
+Ability: Grassy Surge  
+EVs: 112 HP / 252 Atk / 144 Spe  
+Adamant Nature  
+- Wood Hammer  
+- Superpower  
+- Stone Edge  
+- Horn Leech  
+
+ 
+Tornadus-Therian @ Rocky Helmet  
+Ability: Regenerator  
+EVs: 224 HP / 80 Def / 204 Spe  
+Timid Nature  
+- Hurricane  
+- Knock Off  
+- Defog  
+- U-turn  

@@ -1,5 +1,5 @@
 import random
-
+import os
 _FIXED_SEED_PKMN = ']'.join([
   'Volbeat||leftovers|H|tailwind,substitute,thunderwave,bugbuzz||81,,85,85,85,85||,0,,,,||83|',
   'Pangoro||choiceband|1|gunkshot,superpower,knockoff,icepunch||85,85,85,85,85,85||||79|',
@@ -48,7 +48,78 @@ def _3_trickroom(level = ''):
     'Magearna||fairiumz||trickroom,fleurcannon,focusblast,thunderbolt|Quiet|252,,,252,4,||,0,,,,0||%s|' % level,
   ])
 
-
+stat = {"HP":0, "Atk":1, "Def":2, "SpA":3,"SpD":4, "Spe":5}
+def parse_file(file,max_level = 100):
+  newline = ""
+  with open(file) as teamfile:
+    team = []
+    for i in range (0, 6):
+      #LINE 1: Name
+      #TODO: Handle Nicknames
+      gender = ""
+      while newline.strip() == "":
+        newline = teamfile.readline()
+      name = newline.split(" @ ")[0].strip()
+      if "(M)" in name:
+          gender = "M"
+          name = name.split("(M)")[0].strip()
+      if "(F)" in name:
+          gender = "F"
+          name = name.split("(F)")[0].strip()
+      item = newline.split(" @ ")[1].strip()
+      #LINE 2: Ability
+      abilityline = teamfile.readline()
+      ability = abilityline.split(": ")[1].strip()
+      #LINE 3: Level
+      newline = teamfile.readline()
+      if "Level" in newline:
+        level = max(int(newline.split(": ")[1].strip()), max_level)
+        newline = teamfile.readline()
+      else:
+        level = max_level
+      #LINE 4: EVs
+      #EVs: 156 Def / 116 SpA / 236 Spe
+      evs = newline.split(": ")[1].strip()
+      ev_arr = [0, 0, 0, 0, 0, 0]
+      for i in evs.split(" / "):
+        ev_split = i.split(" ")
+        ev_num = int(ev_split[0])
+        ev_arr[stat[ev_split[1]]] = ev_num
+      newline = teamfile.readline()
+      #LINE 6: NATURE
+      nature = newline.split(" ")[0].strip()
+      newline = teamfile.readline()
+      iv_arr = [0, 0, 0, 0, 0, 0]
+      if newline[0:3] == "IVs":
+        #LINE 5? IVs?
+        ivs = newline.split(": ")[1].strip()
+        iv_arr = [0, 0, 0, 0, 0, 0]
+        for i in ivs.split(" / "):
+          iv_split = i.split(" ")
+          iv_num = int(iv_split[0])
+          iv_arr[stat[iv_split[1]]] = iv_num
+        newline = teamfile.readline()
+      #LINES 7-10: MOVES?
+      moves = []
+      while newline[0:2] == "- ":
+        moves.append(newline[2:].strip())
+        newline = teamfile.readline()
+      #print('Magearna||fairiumz||trickroom,fleurcannon,focusblast,thunderbolt|Quiet|252,,,252,4,||,0,,,,0||%s|')
+      item = item.replace(" ", "").replace("-", "").lower()
+      moves = ",".join([move.replace(" ", "").replace("-", "").replace("[", "").replace("]", "").lower() for move in moves])
+      ev_arr = ",".join([str(i) if i > 0 else "" for i in ev_arr])
+      iv_arr = ",".join([str(i) if i > 0 else "" for i in iv_arr])
+      team.append("{}||{}|{}|{}|{}|{}||{}|{}|{}|".format(name,item, ability, moves, nature, ev_arr, iv_arr,gender,level))
+      print(team[-1])
+    return "]".join(team)
+ou_teams = []
+team_path = "metagrok/teams/ou"
+for file in os.listdir(team_path):
+    if ".txt" in file:
+        ou_teams.append(parse_file(os.path.join(team_path,file)))
+        print("")
+sys.exit(1)
+print("done loading ou teams")
 _MATRIX_GRID_TEAMS = {1: _1_coverage(), 2: _2_psyspam(), 3: _3_trickroom()}
 
 _NAME_TO_OPTIONS = dict(
@@ -81,6 +152,20 @@ for i in [1, 2, 3]:
       p1 = {'name': 'p1', 'team': _MATRIX_GRID_TEAMS[i]},
       p2 = {'name': 'p2', 'team': _MATRIX_GRID_TEAMS[j]},
     )
+
+def get_teams(p1_ind, p2_ind):
+  #Used for initial team matchup experiments.
+  team_1 = ou_teams[p1_ind]
+  team_2 = ou_teams[p2_ind]
+  return dict(
+        formatid="gen7ou",
+        p1= {'name': 'p1', 'team': team_1},
+        p2 = {'name': 'p2', 'team': team_2},
+    )
+
+
+
+
 
 def _make_fixed_team_p1_meta(p1_team):
   return dict(
@@ -120,7 +205,7 @@ def random_matrix_team(name):
   return rv
 
 def default():
-  return get('gen7randombattle')
+  return get('gen7zzzzz')
 
 def all():
   return list(_NAME_TO_OPTIONS.keys())

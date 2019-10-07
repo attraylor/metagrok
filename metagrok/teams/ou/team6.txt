@@ -1,0 +1,61 @@
+Serperior @ Leftovers  
+Ability: Contrary  
+EVs: 56 HP / 220 SpA / 232 Spe  
+Timid Nature  
+IVs: 0 Atk  
+- Leaf Storm  
+- Hidden Power [Fire]  
+- Substitute  
+- Leech Seed  
+
+ 
+Mawile-Mega @ Mawilite  
+Ability: Intimidate  
+EVs: 80 HP / 252 Atk / 176 Spe  
+Adamant Nature  
+- Sucker Punch  
+- Swords Dance  
+- Play Rough  
+- Knock Off  
+
+ 
+Landorus-Therian @ Rockium Z  
+Ability: Intimidate  
+EVs: 252 Atk / 4 SpD / 252 Spe  
+Jolly Nature  
+- Swords Dance  
+- Earthquake  
+- Stone Edge  
+- U-turn  
+
+ 
+Tapu Fini @ Leftovers  
+Ability: Misty Surge  
+EVs: 248 HP / 68 SpD / 192 Spe  
+Calm Nature  
+IVs: 0 Atk  
+- Taunt  
+- Moonblast  
+- Defog  
+- Nature's Madness  
+
+ 
+Heatran @ Leftovers  
+Ability: Flash Fire  
+EVs: 240 HP / 56 SpA / 168 SpD / 44 Spe  
+Calm Nature  
+IVs: 0 Atk  
+- Stealth Rock  
+- Magma Storm  
+- Earth Power  
+- Protect  
+
+ 
+Greninja-Ash @ Choice Specs  
+Ability: Battle Bond  
+EVs: 4 Def / 252 SpA / 252 Spe  
+Timid Nature  
+- Hydro Pump  
+- Dark Pulse  
+- Spikes  
+- Water Shuriken  

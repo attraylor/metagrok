@@ -1,0 +1,60 @@
+Tornadus-Therian @ Firium Z  
+Ability: Regenerator  
+EVs: 40 Atk / 252 SpA / 216 Spe  
+Naive Nature  
+- Heat Wave  
+- Superpower  
+- Hidden Power [Ice]  
+- Knock Off  
+
+ 
+Magearna @ Leftovers  
+Ability: Soul-Heart  
+EVs: 248 HP / 28 Def / 232 SpD  
+Calm Nature  
+IVs: 0 Atk / 27 Spe  
+- Flash Cannon  
+- Pain Split  
+- Heart Swap  
+- Volt Switch  
+
+ 
+Latios-Mega @ Latiosite  
+Ability: Levitate  
+EVs: 4 Atk / 252 SpA / 252 Spe  
+Naive Nature  
+- Psychic  
+- Earthquake  
+- Roost  
+- Draco Meteor  
+
+ 
+Clefable (F) @ Leftovers  
+Ability: Magic Guard  
+EVs: 252 HP / 200 Def / 56 SpD  
+Bold Nature  
+- Stealth Rock  
+- Soft-Boiled  
+- Seismic Toss  
+- Wish  
+
+ 
+Toxapex (F) @ Black Sludge  
+Ability: Regenerator  
+EVs: 248 HP / 124 Def / 132 SpD / 4 Spe  
+Bold Nature  
+IVs: 0 Atk  
+- Toxic Spikes  
+- Scald  
+- Recover  
+- Toxic  
+
+ 
+Landorus-Therian @ Choice Scarf  
+Ability: Intimidate  
+EVs: 96 HP / 204 Atk / 12 Def / 196 Spe  
+Jolly Nature  
+- Earthquake  
+- Stone Edge  
+- Defog  
+- U-turn

@@ -1,0 +1,61 @@
+Kartana @ Normalium Z  
+Ability: Beast Boost  
+EVs: 252 Atk / 4 SpD / 252 Spe  
+Jolly Nature  
+- Swords Dance  
+- Leaf Blade  
+- Sacred Sword  
+- Giga Impact  
+
+ 
+Tapu Fini @ Leftovers  
+Ability: Misty Surge  
+EVs: 248 HP / 12 SpA / 236 SpD / 12 Spe  
+Calm Nature  
+IVs: 0 Atk  
+- Taunt  
+- Moonblast  
+- Scald  
+- Defog  
+
+ 
+Landorus-Therian @ Choice Scarf  
+Ability: Intimidate  
+EVs: 244 Atk / 68 Def / 196 Spe  
+Jolly Nature  
+- Earthquake  
+- Stone Edge  
+- Punishment  
+- U-turn  
+
+ 
+Heatran @ Leftovers  
+Ability: Flash Fire  
+EVs: 248 HP / 8 SpA / 252 SpD  
+Calm Nature  
+IVs: 0 Atk  
+- Stealth Rock  
+- Lava Plume  
+- Toxic  
+- Protect  
+
+ 
+Tangrowth @ Rocky Helmet  
+Ability: Regenerator  
+EVs: 248 HP / 248 Def / 12 SpD  
+Relaxed Nature  
+- Giga Drain  
+- Sludge Bomb  
+- Knock Off  
+- Leech Seed  
+
+ 
+Rotom-Wash @ Leftovers  
+Ability: Levitate  
+EVs: 248 HP / 20 Def / 240 SpD  
+Calm Nature  
+IVs: 0 Atk / 12 Spe  
+- Volt Switch  
+- Hydro Pump  
+- Pain Split  
+- Will-O-Wisp  

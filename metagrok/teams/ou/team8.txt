@@ -1,0 +1,60 @@
+Tapu Lele @ Choice Scarf  
+Ability: Psychic Surge  
+EVs: 4 Def / 252 SpA / 252 Spe  
+Timid Nature  
+IVs: 0 Atk  
+- Psychic  
+- Moonblast  
+- Focus Blast  
+- Hidden Power [Fire]  
+
+ 
+Tangrowth @ Assault Vest  
+Ability: Regenerator  
+EVs: 248 HP / 8 Def / 252 SpD  
+Sassy Nature  
+- Giga Drain  
+- Knock Off  
+- Earthquake  
+- Hidden Power [Fire]  
+
+ 
+Celesteela @ Leftovers  
+Ability: Beast Boost  
+EVs: 248 HP / 88 Def / 168 SpD / 4 Spe  
+Sassy Nature  
+- Heavy Slam  
+- Leech Seed  
+- Protect  
+- Flamethrower  
+
+ 
+Garchomp @ Rockium Z  
+Ability: Rough Skin  
+EVs: 252 Atk / 4 SpD / 252 Spe  
+Jolly Nature  
+- Stealth Rock  
+- Swords Dance  
+- Earthquake  
+- Stone Edge  
+
+ 
+Tapu Fini @ Leftovers  
+Ability: Misty Surge  
+EVs: 248 HP / 60 Def / 8 SpD / 192 Spe  
+Bold Nature  
+IVs: 0 Atk  
+- Taunt  
+- Moonblast  
+- Defog  
+- Nature's Madness  
+
+ 
+Alakazam-Mega @ Alakazite  
+Ability: Magic Guard  
+EVs: 4 Def / 252 SpA / 252 Spe  
+Timid Nature  
+- Psychic  
+- Focus Blast  
+- Knock Off  
+- Recover  

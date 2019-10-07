@@ -1,0 +1,57 @@
+Ditto @ Choice Scarf  
+Ability: Imposter  
+EVs: 252 HP / 128 Def / 128 SpD  
+Timid Nature
+IVs: 30 SpA / 30 SpD  
+- Transform  
+ 
+Chansey @ Eviolite  
+Ability: Natural Cure  
+EVs: 248 HP / 252 Def / 8 SpD  
+Bold Nature  
+IVs: 28 Spe  
+- Stealth Rock  
+- Seismic Toss  
+- Soft-Boiled  
+- Toxic  
+
+ 
+Toxapex (M) @ Black Sludge  
+Ability: Regenerator  
+EVs: 252 HP / 32 Def / 196 SpD / 28 Spe  
+Bold Nature  
+IVs: 0 Atk  
+- Baneful Bunker  
+- Scald  
+- Recover  
+- Haze  
+
+ 
+Scizor-Mega (M) @ Scizorite  
+Ability: Light Metal  
+EVs: 248 HP / 40 Def / 220 Spe  
+Impish Nature  
+- Bullet Punch  
+- Knock Off  
+- Roost  
+- U-turn  
+
+ 
+Gliscor (M) @ Toxic Orb  
+Ability: Poison Heal  
+EVs: 244 HP / 32 SpD / 232 Spe  
+Jolly Nature  
+- Earthquake  
+- Roost  
+- Toxic  
+- Defog  
+
+ 
+Tornadus-Therian @ Flyinium Z  
+Ability: Regenerator  
+EVs: 4 Atk / 252 SpA / 252 Spe  
+Naive Nature  
+- Taunt  
+- Hurricane  
+- Superpower  
+- U-turn  

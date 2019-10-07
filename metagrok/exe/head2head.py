@@ -4,6 +4,7 @@ import logging
 import math
 import os
 import textwrap
+import random
 
 import gevent
 
@@ -15,6 +16,7 @@ from metagrok import utils
 from metagrok import mail
 from metagrok.pkmn.games import Game
 from metagrok.pkmn.engine.player import EnginePkmnPlayer
+from metagrok import team_choice
 
 def start(args):
   logger = utils.default_logger_setup(logging.INFO)
@@ -32,8 +34,7 @@ def start(args):
       config.get('showdown_server_dir'),
       'pokemon-showdown')
 
-  game = Game(options = formats.get(args.format), prog = prog)
-
+  #game = Game(options = formats.get(args.format), prog = prog)
   policy_1 = torch_policy.load(args.p1)
   policy_2 = torch_policy.load(args.p2)
 
@@ -41,7 +42,12 @@ def start(args):
 
   logger.info('starting...')
   # TODO: make multithreaded. Maybe integrate this with RL experiment
+  strategy_agent = team_choice.AgentStrategyProfile(len(formats.ou_teams), len(formats.ou_teams))
   for i in range(args.num_matches):
+    #team1_ind = team_choice.teamchoice_random(formats.ou_teams)
+    team1_ind = strategy_agent.select_action()
+    team2_ind = strategy_agent.select_action_p2()
+    game = Game(options = formats.get_teams(team1_ind, team2_ind), prog = prog)
     p1 = EnginePkmnPlayer(policy_1, '%s-p1' % i,
       play_best_move = args.play_best_move in ['p1', 'both'])
     p2 = EnginePkmnPlayer(policy_2, '%s-p2' % i,
@@ -56,12 +62,16 @@ def start(args):
       for block in player.blocks:
         bogger.log(block)
       bogger.close()
-
+      if j == 0:
+         if player.result == 'winner':
+           strategy_agent.update(team1_ind, team2_ind, p1_win=True)
+         else:
+           strategy_agent.update(team1_ind, team2_ind, p1_win=False)
       if player.result == 'winner':
         wins[j] += 1
       else:
         assert player.result in ['loser', 'tie']
-
+  print(strategy_agent.get_utility_matrix())
   return wins
 
 def parse_args():
@@ -82,6 +92,9 @@ def main():
 
   params = vars(args)
   params['_format_details'] = formats.get(args.format)
+  #print(params['_format_details'])
+  #sys.exit(1)
+
 
   with open(os.path.join(args.outdir, 'args.json'), 'w') as fd:
     json.dump(params, fd)
@@ -89,8 +102,8 @@ def main():
   p1wins, p2wins = gevent.spawn(start, parse_args()).get()
 
   subject = 'head2head evaluation finished: ' + args.outdir
-
   mean = float(p1wins) / args.num_matches
+  print(args.num_matches)
   var = mean * (1. - mean)
   sem = math.sqrt(var / args.num_matches)
   z = (mean - 0.5) / (1e-8 + sem)
@@ -108,7 +121,7 @@ def main():
 
   Arguments:
   %s''') % fmt_args
-
+  print(text)
   mail.send(subject, text)
 
 if __name__ == '__main__':

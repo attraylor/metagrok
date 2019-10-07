@@ -27,7 +27,7 @@ class Policy(TorchPolicy):
   def __init__(self, **kwargs):
     super(Policy, self).__init__(**kwargs)
     self.pkmn_size      = kwargs.get('pkmn_size', 64)
-    self.move_size      = kwargs.get('embed_size', 32)
+    self.move_size      = 100#kwargs.get('embed_size', 32)
     self.depth          = kwargs.get('depth', 1)
     self.embed_depth    = kwargs.get('embed_depth', self.depth)
 
@@ -51,6 +51,24 @@ class Policy(TorchPolicy):
     self.decision_size = self.shared_size + self.pkmn_size + self.move_size
 
     self.species    = nn.Embedding(Species.size,    self.move_size, padding_idx = 0, max_norm = 1.)
+    '''with open("embeddings/wvs_mwes.txt") as smogon_embeddings:
+        smogon_species_embeddings = {}
+        for line in smogon_embeddings:
+            word = line.split("\t")[0]
+            word = word.lower().replace("_", "").replace("-", "")
+            if word in Species.name_to_index.keys():
+                smogon_species_embeddings[word] = [float(i) for i in (line.split("\t")[1]).split(" ")]
+        species_embedding_matr = []
+        for i in range(len(Species.name_to_index.keys())):
+            try:
+                species_embedding_matr.append(smogon_species_embeddings[Species.index_to_name[i]])
+            except KeyError:
+                print(i, Species.index_to_name[i])
+                species_embedding_matr.append(np.random.rand(self.move_size).tolist())
+        species_embedding_matr = torch.FloatTensor(np.asmatrix(species_embedding_matr))
+    self.species.weight.data = species_embedding_matr
+    print("success!")
+    raise(Exception)'''
     self.abilities  = nn.Embedding(Abilities.size,  self.move_size, padding_idx = 0, max_norm = 1.)
     self.items      = nn.Embedding(Items.size,      self.move_size, padding_idx = 0, max_norm = 1.)
     self.moves      = nn.Embedding(Moves.size,      self.move_size, padding_idx = 0, max_norm = 1.)
@@ -265,6 +283,7 @@ class Policy(TorchPolicy):
 
 Moves = DEX.spec('BattleMovedex')
 Species = DEX.spec('BattlePokedex')
+print(Species.name_to_index["charizard"])
 Types = DEX.spec('BattleTypeChart')
 Statuses = DEX.spec('BattleStatuses')
 Abilities = DEX.spec('BattleAbilities')
