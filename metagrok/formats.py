@@ -110,16 +110,15 @@ def parse_file(file,max_level = 100):
       ev_arr = ",".join([str(i) if i > 0 else "" for i in ev_arr])
       iv_arr = ",".join([str(i) if i > 0 else "" for i in iv_arr])
       team.append("{}||{}|{}|{}|{}|{}||{}|{}|{}|".format(name,item, ability, moves, nature, ev_arr, iv_arr,gender,level))
-      print(team[-1])
+      #print(team[-1])
     return "]".join(team)
 ou_teams = []
 team_path = "metagrok/teams/ou"
 for file in os.listdir(team_path):
     if ".txt" in file:
         ou_teams.append(parse_file(os.path.join(team_path,file)))
-        print("")
-sys.exit(1)
-print("done loading ou teams")
+        #print("")
+
 _MATRIX_GRID_TEAMS = {1: _1_coverage(), 2: _2_psyspam(), 3: _3_trickroom()}
 
 _NAME_TO_OPTIONS = dict(
@@ -143,6 +142,9 @@ _NAME_TO_OPTIONS = dict(
     p1 = lambda: random_matrix_team('p1'),
     p2 = lambda: random_matrix_team('p2'),
   ),
+  gen7lc = dict(
+    formatid = 'gen7lc',
+  )
 )
 
 for i in [1, 2, 3]:

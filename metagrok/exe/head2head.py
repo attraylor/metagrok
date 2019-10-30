@@ -18,6 +18,8 @@ from metagrok.pkmn.games import Game
 from metagrok.pkmn.engine.player import EnginePkmnPlayer
 from metagrok import team_choice
 
+from metagrok import team_generation as tg
+
 def start(args):
   logger = utils.default_logger_setup(logging.INFO)
   logger.info('Writing to ' + args.outdir)
@@ -42,12 +44,13 @@ def start(args):
 
   logger.info('starting...')
   # TODO: make multithreaded. Maybe integrate this with RL experiment
-  strategy_agent = team_choice.AgentStrategyProfile(len(formats.ou_teams), len(formats.ou_teams))
+  p1_teams, p2_teams = tg.init_lc_thunderdome()
+  strategy_agent = team_choice.AgentStrategyProfile(p1_teams, p2_teams)
   for i in range(args.num_matches):
     #team1_ind = team_choice.teamchoice_random(formats.ou_teams)
     team1_ind = strategy_agent.select_action()
     team2_ind = strategy_agent.select_action_p2()
-    game = Game(options = formats.get_teams(team1_ind, team2_ind), prog = prog)
+    game = Game(options = strategy_agent.get_teams(team1_ind, team2_ind), prog = prog)
     p1 = EnginePkmnPlayer(policy_1, '%s-p1' % i,
       play_best_move = args.play_best_move in ['p1', 'both'])
     p2 = EnginePkmnPlayer(policy_2, '%s-p2' % i,
@@ -72,6 +75,15 @@ def start(args):
       else:
         assert player.result in ['loser', 'tie']
   print(strategy_agent.get_utility_matrix())
+  with open("lc_thunderdome_results.txt", "w+") as wf:
+	  for ct, team in enumerate(strategy_agent.p1_teams):
+		  wf.write("{}\t{}\n".format(ct, team))
+	  for ct, team in enumerate(strategy_agent.p2_teams):
+		  wf.write("{}\t{}\n".format(ct, team))
+	 # wf.write(strategy_agent.get_utility_matrix())
+	  wf.write("\n")
+	  wf.flush()
+	  wf.close()
   return wins
 
 def parse_args():
