@@ -22,12 +22,20 @@ def generate_random_pokemon(species=None,level=100):
 		pts_allocated += 4
 	return p.Pokemon(species, item,ability, moves, nature,evs, ivs, level)
 
-def generate_random_team():
+def generate_random_team(tier=None,level=100):
+	#If tier != none, the randomness abt pokemon choice happens here
 	team = []
+	if tier != None:
+		legal_pokemon = get_legal_pokemon(tier)
 	for i in range(0, 6):
-		team.append(generate_random_pokemon())
-	for pokemon in team:
-		print(pokemon.export_to_line())
+		if tier != None:
+			selected_species = random.choice(legal_pokemon)
+		else:
+			selected_species = None
+		team.append(generate_random_pokemon(selected_species,level=level))
+	#for pokemon in team:
+	#	print(pokemon.export_to_line())
+	return "]".join([pokemon.export_to_line() for pokemon in team])
 
 def get_legal_pokemon(tier):
 	legal_pokemon = []
@@ -36,7 +44,6 @@ def get_legal_pokemon(tier):
 			if p.metagame_legalities[pokemon]["tier"] == tier:
 				legal_pokemon.append(pokemon)
 	return legal_pokemon
-
 
 def generate_random_monotype_lc_team(type):
 	team = []
@@ -68,7 +75,7 @@ def init_lc_thunderdome():
 
 
 print(len(get_legal_pokemon("LC")))
-generate_random_monotype_lc_team("Fire")
+#generate_random_monotype_lc_team("Fire")
 
 
-#generate_random_team()
+print(generate_random_team("LC",level=5))
